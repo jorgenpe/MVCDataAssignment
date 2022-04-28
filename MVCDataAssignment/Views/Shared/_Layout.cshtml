@@ -6,8 +6,32 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
+    <header>
+
+
+    <h2>MVC Data Assignment</h2>
+    <nav>
+        <ul>
+            <li>
+                <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="People" asp-action="Index">People</a>
+            </li>
+
+        </ul>
+    </nav>
+
+
+
+    </header>
     <div>
         @RenderBody()
     </div>
+    <footer>
+        <p>&copy; Jörgen P.   @DateTime.Now.ToShortDateString() @DateTime.Now.ToShortTimeString()  </p>
+        
+    
+    </footer>
 </body>
 </html>

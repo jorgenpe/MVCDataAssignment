@@ -8,7 +8,7 @@ namespace MVCDataAssignment.Models
     public class PeopleService : IPeopleService
     {
 
-        InMemoryPeopleRepo peopleRepo;    
+        InMemoryPeopleRepo peopleRepo = new InMemoryPeopleRepo();    
 
         public PeopleService()
         {
@@ -22,7 +22,14 @@ namespace MVCDataAssignment.Models
             return newPerson; 
         }
         
-        public List<Person> All() { return peopleRepo.Read(); }
+        public List<Person> All() { 
+            if(peopleRepo != null)
+            {
+                return peopleRepo.Read();
+
+            }
+            return null;    
+        }
 
         public List<Person> Search(string search){
 

@@ -1,0 +1,33 @@
+﻿@model List<Person>
+@{
+    ViewData["Title"] = "People - Index";
+}
+
+
+<h1>People</h1>
+
+
+<a asp-action="Create">Add a new car</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phonenumber</th>
+            <th>City name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Person person in Model)
+        {
+            <tr>
+                <td>@person.Id Kr</td>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.PhoneNumber</td>
+                <td>@person.CityName</td>
+            </tr>
+        }
+    </tbody>
+</table>

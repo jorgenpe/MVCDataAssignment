@@ -11,6 +11,11 @@ namespace MVCDataAssignment.Models
         static int idCounter = 0;
         static List<Person> people = new List<Person>();
 
+        public InMemoryPeopleRepo()
+        {
+
+        }
+
         public Person Create(Person person) 
         {
             person.Id = ++idCounter;
