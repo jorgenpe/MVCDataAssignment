@@ -1,0 +1,28 @@
+﻿
+@model Person
+@{
+    ViewData["Title"] = "person - Info";
+}
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First name  </th>
+            <th>Last name  </th>
+            <th>City name  </th>
+            <th>Phone number  </th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                console-log(@Model.Id)
+                <th>@Model.Id</th>
+                <td>@Model.FirstName  </td>
+                <td>@Model.LastName  </td>
+                <td>@Model.CityName  </td>
+                <td>@Model.PhoneNumber</td>
+            </tr>
+        
+    </tbody>
+</table>

@@ -7,27 +7,47 @@
 <h1>People</h1>
 
 
-<a asp-action="Create">Add a new car</a>
+<a asp-action="Create">Add a new Person</a>
 
 <table>
     <thead>
         <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Phonenumber</th>
-            <th>City name</th>
+            <th>Id</th>
+            <th>First name  </th>
+            <th>Last name  </th>
+            <th>City name  </th>
         </tr>
     </thead>
     <tbody>
         @foreach (Person person in Model)
         {
             <tr>
-                <td>@person.Id Kr</td>
-                <td>@person.FirstName</td>
-                <td>@person.LastName</td>
-                <td>@person.PhoneNumber</td>
-                <td>@person.CityName</td>
+                <td>@person.Id</td>
+                <td>@person.FirstName  </td>
+                <td>@person.LastName  </td>
+                <td>@person.CityName  </td>
+                <td>
+                    
+                    <form asp-action="Info" method="post">
+                    <input type="hidden" value="@person.Id" name="id" />
+                    <button type="submit" >Person Info </button>
+                    </form>
+                 </td>
+
+                 <td>
+                    
+                    <form asp-action="DeletePerson" method="post">
+                        <input type="hidden" value="@person.Id" name="id" />
+                        <button type="submit" >Delete </button>
+                    </form>
+                 </td>
             </tr>
         }
     </tbody>
+
+    <form asp-action="Search" method="post">
+        <input type="text"   />
+        <button type="submit" >Search </button>
+   </form>
+
 </table>

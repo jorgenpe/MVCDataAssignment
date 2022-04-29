@@ -25,7 +25,9 @@ namespace MVCDataAssignment.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View(_peopleService.All());
+            CreatePersonViewModel createPerson = new CreatePersonViewModel();
+
+            return View(createPerson);
         }
 
         [HttpPost]
@@ -34,7 +36,8 @@ namespace MVCDataAssignment.Controllers
             if (ModelState.IsValid)
             {
                 _peopleService.Add(createPerson);
-                return Redirect("Index");
+
+                return RedirectToAction("Index");
             }
 
             return View(createPerson);
@@ -47,11 +50,31 @@ namespace MVCDataAssignment.Controllers
             return View(createPerson);
         }
 
-        [HttpDelete]
-        public IActionResult Delete(int id)
+        [HttpPost]
+        public IActionResult DeletePerson(int id)
         {
+            if (ModelState.IsValid)
+            {
+                _peopleService.Remove(id);
+               return RedirectToAction("Index");
+
+            }
+            
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Info(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                return View(_peopleService.FindById(id));
+                
+            }
+            return View();
+        }
+
 
 
     }
