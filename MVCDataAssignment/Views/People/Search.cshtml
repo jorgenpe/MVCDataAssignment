@@ -1,27 +1,40 @@
-﻿@Model List<Person>
+﻿@model List<Person>
 @{
     ViewData["Title"] = "Search - Find People";
 }
 
 <h1>New Search</h1>
 
-<form asp-action="Create" method="post">
-    <label asp-for="FirstName"></label>
-    <input asp-for="FirstName" />
-    <span asp-validation-for="FirstName"></span>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First name  </th>
+            <th>Last name  </th>
+            <th>City name  </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Person person in Model)
+        {
+            <tr>
+                <td>@person.Id</td>
+                <td>@person.FirstName  </td>
+                <td>@person.LastName  </td>
+                <td>@person.CityName  </td>
+                <td>
+                    
+                    <form asp-action="Info" method="post">
+                    <input type="hidden" value="@person.Id" name="id" />
+                    <button type="submit" >Person Info </button>
+                    </form>
+                 </td>
 
-    <label asp-for="LastName"></label>
-    <input asp-for="LastName" />
-    <span asp-validation-for="LastName"></span>
-
-    <label asp-for="PhoneNumber"></label>
-    <input asp-for="PhoneNumber"/>
-    <span asp-validation-for="PhoneNumber"></span>
-
-    <label asp-for="CityName"></label>
-    <input asp-for="CityName"/>
-    <span asp-validation-for="CityName"></span>
-
-    <button type="submit">Create person</button>
-
-    
+                 <td>
+                    
+                   
+                 </td>
+            </tr>
+        }
+        </tbody>
+    </table>

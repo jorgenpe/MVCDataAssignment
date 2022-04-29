@@ -44,11 +44,11 @@ namespace MVCDataAssignment.Controllers
         }
 
 
-        [HttpPut]
+        /*[HttpPut]
         public IActionResult Edit(int id,CreatePersonViewModel createPerson)
         {
             return View(createPerson);
-        }
+        }*/
 
         [HttpPost]
         public IActionResult DeletePerson(int id)
@@ -75,6 +75,18 @@ namespace MVCDataAssignment.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Search(string textin)
+        {
+           
+            if (ModelState.IsValid)
+            {
+                
+                return View(_peopleService.Search(textin));
+
+            }
+            return View();
+        }
 
 
     }
